@@ -13,10 +13,12 @@ public class MatriculaRepositoryImpl implements IMatriculaRepository{
 	}
 
 	@Override
-	public Matricula buscar(String nombre) {
+	public Matricula buscar(String numero) {
 		// TODO Auto-generated method stub
-		System.out.println("Se ha buscado en la base de datos : " +nombre);
-		return null;
+		System.out.println("Se ha buscado en la base de datos : " +numero);
+		Matricula m =new Matricula();
+		m.setNumero(numero);
+		return m;
 	}
 
 	@Override

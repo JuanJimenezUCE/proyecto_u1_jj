@@ -8,7 +8,7 @@ public interface IMatriculaRepository {
     public void insertar(Matricula m );
 	
 	//R: leer/ buscar
-	public Matricula buscar(String nombre);
+	public Matricula buscar(String numero);
 	
 	//U: actualizar
 	public void actualizar(Matricula m);

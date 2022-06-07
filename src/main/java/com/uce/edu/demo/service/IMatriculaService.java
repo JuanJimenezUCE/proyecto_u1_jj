@@ -6,7 +6,7 @@ public interface IMatriculaService {
 	public void ingresarMatricula(Matricula m );
 	
 	
-	public Matricula buscarPorEstudiante(String Estudiante);
+	public Matricula buscarPorNumero(String numero);
 	
 	
 	public void actualizarMatricula(Matricula m);

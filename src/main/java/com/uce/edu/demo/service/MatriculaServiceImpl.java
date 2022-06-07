@@ -19,9 +19,10 @@ public class MatriculaServiceImpl implements IMatriculaService{
 	}
 
 	@Override
-	public Matricula buscarPorEstudiante(String Estudiante) {
+	public Matricula buscarPorNumero(String numero) {
 		// TODO Auto-generated method stub
-		return this.matriRepository.buscar(Estudiante);
+		return this.matriRepository.buscar(numero);
+
 	}
 
 	@Override
