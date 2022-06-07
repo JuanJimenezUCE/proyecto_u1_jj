@@ -1,35 +1,17 @@
 package com.uce.edu.demo;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.consultorio.CitaMedica2;
-import com.uce.edu.demo.matricula.Matricula;
-import com.uce.edu.demo.matricula.Matricula2;
-import com.uce.edu.demo.matricula.Matricula3;
+import com.uce.edu.demo.modelo.Estudiante;
+import com.uce.edu.demo.service.IEstudianteService;
 
 @SpringBootApplication
 public class ProyectoU1JjApplication  implements CommandLineRunner{
-	
-	//1) DI por atributo
-//	@Autowired
-//	private CitaMedica cita;
-	
-	
-	//@Autowired
-//	private CitaMedica2 cita;
 	@Autowired
-	private Matricula matricula;
-	
-	@Autowired
-	private Matricula2 matricula2;
-	
-	@Autowired
-	private Matricula3 matricula3;
+	private IEstudianteService estuService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1JjApplication.class, args);
@@ -38,25 +20,28 @@ public class ProyectoU1JjApplication  implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-	/*	System.out.println("Mi primer proyecto con Spring Framework");
+		Estudiante e= new Estudiante();
+		e.setNombre("Juan");
+		e.setApellido("Jimenez");
+		e.setCedula("1723026900");
 		
-	
-		String respuesta =this.cita.agendar(LocalDateTime.now(),"Javier","Teran",32,"Quito","Pepito",19);
+		this.estuService.ingresarEstudiante(e);
 		
-		System.out.println(respuesta);*/
-		System.out.println("Tarea 5 con Spring Framework");
+		Estudiante e1= new Estudiante();
+		e1.setNombre("Pepito");
+		e1.setApellido("Perez");
+		e1.setCedula("1723000900");
 		
-		System.out.println("DI por atributos");
-		String atributo =this.matricula.matricular(LocalDateTime.now(),"Juan","Jimenez",20,"Calculo Integral",6);	
-		System.out.println(atributo);
+		this.estuService.ingresarEstudiante(e1);
 		
-		System.out.println("DI por constructor");
-		String constructor =this.matricula2.matricular(LocalDateTime.now(),"Juan","Jimenez",20,"Programacion 1",8);	
-		System.out.println(constructor);
+		//Usar los  3 metodos restantes
+		//actualizar , borrar, y buscar
+		e.setCedula("1723026922");
+		this.estuService.actualizarEstudiante(e);
 		
-		System.out.println("DI por metodo SET");
-		String set =this.matricula3.matricular(LocalDateTime.now(),"Juan","Jimenez",20,"Algebra Lineal",4);	
-		System.out.println(set);
+		this.estuService.buscarPorApellido("Jimenez");
+		
+		this.estuService.borrarEstudiante("1723026922");
 	}
 
 }
