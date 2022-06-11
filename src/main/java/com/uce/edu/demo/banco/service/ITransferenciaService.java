@@ -11,4 +11,6 @@ public interface ITransferenciaService {
 	public void actualizar(Transferencia c);
 	public Transferencia buscar(String ctaOrigen);
 	public void borrar(String ctaDestino);
+	
+	
 }
