@@ -7,7 +7,7 @@ import java.util.List;
 import com.uce.edu.demo.banco.modelo.Deposito;
 import com.uce.edu.demo.banco.modelo.Retiro;
 import com.uce.edu.demo.banco.modelo.Transferencia;
-import com.uce.edu.demo.banco.modelo.to.TransaccionTo;
+import com.uce.edu.demo.banco.to.TransaccionTo;
 
 public interface ITransaccionService {
 	

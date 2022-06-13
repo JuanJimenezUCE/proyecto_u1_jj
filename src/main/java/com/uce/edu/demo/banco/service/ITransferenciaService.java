@@ -9,7 +9,9 @@ public interface ITransferenciaService {
 	public void realizarTransferencia(String ctaOrigen,String ctaDestino, BigDecimal monto);
 	
 	public void actualizar(Transferencia c);
+	
 	public Transferencia buscar(String ctaOrigen);
+	
 	public void borrar(String ctaDestino);
 	
 	

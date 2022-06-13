@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 import com.uce.edu.demo.banco.modelo.Deposito;
 import com.uce.edu.demo.banco.modelo.Retiro;
 import com.uce.edu.demo.banco.modelo.Transferencia;
-import com.uce.edu.demo.banco.modelo.to.TransaccionTo;
 import com.uce.edu.demo.banco.repository.IDepositoRepository;
 import com.uce.edu.demo.banco.repository.IRetiroRepository;
 import com.uce.edu.demo.banco.repository.ITransferenciaRepository;
+import com.uce.edu.demo.banco.to.TransaccionTo;
 @Service
 public class TransaccionServiceImpl implements ITransaccionService{
 	@Autowired
@@ -24,7 +24,7 @@ public class TransaccionServiceImpl implements ITransaccionService{
 	@Autowired
 	private IRetiroService iRetiroService;
 	@Autowired
-	private ITransferenciaRepository iTransdeITransferenciaRepository;
+	private ITransferenciaRepository iTransferenciaRepository;
 	@Autowired
 	private IDepositoRepository iDepositoRepository;
 	@Autowired
@@ -53,7 +53,7 @@ public class TransaccionServiceImpl implements ITransaccionService{
 	public List<TransaccionTo> consultar(String cuenta , LocalDateTime fechaInicio,LocalDateTime fechaFin){
 		
 		
-		List<Transferencia> listaTrans = this.iTransdeITransferenciaRepository.consultar(cuenta, fechaInicio, fechaFin);
+		List<Transferencia> listaTrans = this.iTransferenciaRepository.consultar(cuenta, fechaInicio, fechaFin);
 		List<Deposito> listaDepo = this.iDepositoRepository.consultar(cuenta, fechaInicio, fechaFin);
 		List<Retiro> listaReti = this.iRetiroRepository.consultar(cuenta, fechaInicio, fechaFin);
 		
@@ -80,7 +80,6 @@ public class TransaccionServiceImpl implements ITransaccionService{
 	private TransaccionTo transformar(Transferencia transferencia) {
 		
 		TransaccionTo tranTo= new TransaccionTo();
-		tranTo.setFecha(transferencia.getFechaTransferencia());
 		
 		tranTo.setFecha(transferencia.getFechaTransferencia());
 		tranTo.setMonto(transferencia.getMontoTranferir());

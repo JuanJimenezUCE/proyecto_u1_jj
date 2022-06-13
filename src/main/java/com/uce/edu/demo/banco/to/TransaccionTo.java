@@ -1,4 +1,4 @@
-package com.uce.edu.demo.banco.modelo.to;
+package com.uce.edu.demo.banco.to;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
