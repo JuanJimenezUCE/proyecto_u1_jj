@@ -18,6 +18,26 @@ public class RetiroRepositoryImpl implements IRetiroRepository{
 	}
 
 	@Override
+	public Retiro buscar(String numero) {
+		// TODO Auto-generated method stub
+		System.out.println("Se ha buscado en la base de datos el retiro: "+numero);
+		Retiro r=new Retiro();
+		r.setNumero(numero);
+		return r;
+	}
+
+	@Override
+	public void actualizar(String numeroCuentaDestino) {
+		// TODO Auto-generated method stub
+		System.out.println("Se ha actualizado el retiro: "+numeroCuentaDestino);
+	}
+
+	@Override
+	public void eliminar(LocalDateTime fecha) {
+		// TODO Auto-generated method stub
+		System.out.println("Se ha eliminado el  retiro de fecha : "+fecha);
+	}
+	@Override
 	public List<Retiro> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		// TODO Auto-generated method stub
 		
@@ -32,5 +52,7 @@ public class RetiroRepositoryImpl implements IRetiroRepository{
 		return listaRetiros;
 		
 	}
+
+
 
 }

@@ -9,6 +9,12 @@ public interface IRetiroRepository {
 	
 	public void insertarRetiro(Retiro r);
 	
+    public Retiro buscar(String numero);
+	
+	public void actualizar(String numeroCuentaDestino);
+	
+	public void eliminar(LocalDateTime fecha);
+	
 	public List<Retiro> consultar(String cuenta, LocalDateTime fechaInicio, LocalDateTime fechaFin);
 	
 }
